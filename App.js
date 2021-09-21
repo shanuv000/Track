@@ -1,22 +1,26 @@
-import { StatusBar } from "expo-status-bar";
 import React from "react";
-import { StyleSheet, Text, View } from "react-native";
+import { createAppContainer, createSwitchNavigator } from "react-navigation";
+import { createStackNavigator } from "react-navigation-stack";
+import { createBottomTabNavigator } from "react-navigation-tabs";
+import SignInScreen from "./src/Screens/SignInScreen";
+import AccountScreen from "./src/Screens/AccountScreen";
+import SignUpScreen from "./src/Screens/SignUpScreen";
+import TrackCreateScreen from "./src/Screens/TrackCreateScreen";
+import TrackDetailScreen from "./src/Screens/TrackDetailScreen";
+import TrackListScreen from "./src/Screens/TrackListScreen";
 
-export default function App() {
-  return (
-    <View style={styles.container}>
-      <Text style={styles.text}>Hello Vaibhavs!!</Text>
-      <StatusBar style="auto" />
-    </View>
-  );
-}
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: "#fff",
-    alignItems: "center",
-    justifyContent: "center",
-  },
-  text: { fontSize: 40, color: "chocolate", fontWeight: "600" },
+const SwitchNavigator = createSwitchNavigator({
+  loginflow: createStackNavigator({
+    Signup: SignUpScreen,
+    Signin: SignInScreen,
+  }),
+  mainflow: createBottomTabNavigator({
+    TrackListFlow: createStackNavigator({
+      TrackList: TrackListScreen,
+      TrackDetail: TrackDetailScreen,
+    }),
+    TrackCreate: TrackCreateScreen,
+    Account: AccountScreen,
+  }),
 });
+export default createAppContainer(SwitchNavigator);
