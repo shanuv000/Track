@@ -1,18 +1,34 @@
 import React from "react";
-import { View, StyleSheet, Text, Button } from "react-native";
+import { View, StyleSheet } from "react-native";
+import { Button, Text, Input } from "react-native-elements";
+import Icon from "react-native-vector-icons/FontAwesome";
+import { FontAwesome } from "@expo/vector-icons";
+import Spacer from "./Components/Spacer";
 
 const SignUpScreen = ({ navigation }) => {
   return (
     <>
-      <Text style={{ fontSize: 48 }}>Sign Up Screen</Text>
-      <Button
-        title="Go to Sign In"
-        onPress={() => navigation.navigate("Signin")}
-      />
-      <Button
-        title="Go to Main Flow"
-        onPress={() => navigation.navigate("TrackList")}
-      />
+      <Spacer>
+        <Text h3>SignUp For Tracker </Text>
+      </Spacer>
+      <Input label="Email" />
+      <Spacer />
+      <Input label="Password" />
+      <Spacer />
+      <Spacer>
+        <Button
+          onPress={() => navigation.navigate("Signin")}
+          icon={
+            <FontAwesome
+              style={{ marginRight: 10 }}
+              name="sign-in"
+              size={15}
+              color="white"
+            />
+          }
+          title="Sign Up"
+        />
+      </Spacer>
     </>
   );
 };
