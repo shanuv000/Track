@@ -1,4 +1,5 @@
 import axios from "axios";
+const apiss = process.env.REACT_APP_API_KEY;
 export default axios.create({
-  baseURL: "http://f9f1-150-242-151-101.ngrok.io",
+  baseURL: apiss,
 });

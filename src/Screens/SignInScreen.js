@@ -5,6 +5,7 @@ import NavLinks from "./Components/NavLinks";
 import { Context as AuthContext } from "../Context/AuthContext";
 import AuthForm from "./Components/AuthForm";
 const SignInScreen = () => {
+  console.log("Apis", process.env.REACT_APP_WEATHER_API_KEY);
   const { state, signIn } = useContext(AuthContext);
   return (
     <View style={styles.container}>
